@@ -15,12 +15,11 @@ Imports:
     dplyr,
     httr,
     jsonlite,
-    lubridate,
-    magrittr,
-    stringr
+    magrittr
 Depends: 
     R (>= 3.5)
 LazyData: true
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    creds
 Config/testthat/edition: 3

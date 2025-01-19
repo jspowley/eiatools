@@ -8,8 +8,11 @@
 #' @examples
 eia_version <- function(api_key){
 
-  buffer <- httr::GET(paste0(root,"?api_key=", api_key)) %>%
-    httr::content(as = "text") %>%
+  buffer <-
+    root %>%
+    map_headers(api_key = api_key) %>%
+    httr::GET() %>%
+    httr::content(as = "text", encoding = 'UTF-8') %>%
     jsonlite::fromJSON()
 
   return(

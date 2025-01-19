@@ -7,9 +7,11 @@
 map_headers(url, api_key, headers = NULL)
 }
 \arguments{
-\item{api_key}{A string}
+\item{url}{A string with the url endpoint}
 
-\item{headers}{A named list with keys matching facet type.}
+\item{api_key}{A string with your EIA API key}
+
+\item{headers}{A named list(sort = "", direction = "", data = "", freq = ""...) with header names and arguments}
 }
 \value{
 A string url with headers mapped

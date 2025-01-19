@@ -8,7 +8,7 @@ test_that("eia_map_works", {
 
 
   for (product in products){
-    df <- eia_map(sub = product, offset = 0, freq = "monthly", api_key = key )
+    df <- eia_map(sub = product, offset = 0, freq = "monthly", api_key = key)
     all_series <- append(all_series, list(df))
   }
 

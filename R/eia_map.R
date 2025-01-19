@@ -1,14 +1,20 @@
 #------------------------------------Config------------------------------------#
 
-fixed_headers <- '&data[0]=value&sort[0][column]=period&sort[0][direction]=desc&offset='
+default_headers <- list(
+  sort = 'period',
+  direction = 'desc',
+  data = 'value',
+  length = '5000'
+)
 
 #------------------------------------Distinct Mapping Function Per Product------------------------------------#
 
 #' EIA Mapping Request
 #'
-#' @param type String with URL extension for product type
+#' @param sub String containing subdirectory for EIA endpoint
 #' @param offset Used to offset pagination in sets of 5000
-#' @param api_key String with your eia API key
+#' @param api_key String with your EIA API key
+#' @param freq String with an EIA frequency code
 #'
 #' @return A DataFrame containing the unique identifiers for all products
 #' @export
@@ -16,18 +22,24 @@ fixed_headers <- '&data[0]=value&sort[0][column]=period&sort[0][direction]=desc&
 #' @examples
 eia_map <- function(sub,offset,freq,api_key){
 
-  response <-
-    paste0(
-      root,
-      sub,
-      "?api_key=", api_key,
-      "&frequency=", freq,
-      fixed_headers, offset,'&length=5000') %>%
+  path <- paste0(root,sub)
+  headers <- append(default_headers, list(offset = offset, freq = freq))
+
+  request <- map_headers(url = path, api_key = api_key, headers = headers) %>%
     eia_call()
 
-  data <- response$data %>%
-    dplyr::select(-period, -value) %>%
-    dplyr::distinct(series, .keep_all = TRUE)
+  data <- request$data
+
+  deselect_list <- c("period", "value")
+
+  for(des in deselect_list){
+    if(des %in% colnames(data)){
+      data <- data %>% dplyr::select(-dplyr::all_of(des))
+    }
+  }
+
+  data <- data %>%
+    dplyr::distinct()
 
   return(data)
 }

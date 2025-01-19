@@ -7,11 +7,13 @@
 eia_map(sub, offset, freq, api_key)
 }
 \arguments{
+\item{sub}{String containing subdirectory for EIA endpoint}
+
 \item{offset}{Used to offset pagination in sets of 5000}
 
-\item{api_key}{String with your eia API key}
+\item{freq}{String with an EIA frequency code}
 
-\item{type}{String with URL extension for product type}
+\item{api_key}{String with your EIA API key}
 }
 \value{
 A DataFrame containing the unique identifiers for all products

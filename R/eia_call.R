@@ -4,9 +4,10 @@
 #'
 #' @return A response in json list format
 eia_call <- function(endpoint){
-  httr::GET(endpoint) %>%
+  response <- httr::GET(endpoint) %>%
     httr::content(as = "text", encoding = 'UTF-8') %>%
-    jsonlite::fromJSON() %>%
-    .$response %>%
+    jsonlite::fromJSON()
+
+  response$response %>%
     return()
 }
