@@ -8,7 +8,7 @@
 #'
 #' @examples
 eia_meta <- function(sub, api_key){
-  httr::GET(paste0(root,sub,"?api_key=", api_key)) %>%
-    httr::content(as = "text") %>%
-    jsonlite::fromJSON()
+  paste0(root,sub,"?api_key=", api_key) %>%
+    eia_call() %>%
+    return()
 }

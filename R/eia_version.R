@@ -2,7 +2,7 @@
 #'
 #' @param api_key A string containing your EIA API Key
 #'
-#' @return A list of API and Excel Versions for EIA's web service
+#' @return A list of strings containing API and Excel Versions for EIA's web service
 #' @export
 #'
 #' @examples
