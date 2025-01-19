@@ -25,3 +25,5 @@ When working on a file and one of us has pushed changes after the other persons 
   git push
   
 git stash is your friend here. You may also need to do git add . depending on your changes.
+
+
