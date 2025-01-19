@@ -1,3 +1,9 @@
+#------------------------------------API INFORMATION (KEY TO BE CHANGED)------------------------------------#
+
+url <- '&frequency=monthly&data[0]=value&sort[0][column]=period&sort[0][direction]=desc&offset='
+
+#------------------------------------Distinct Mapping Function Per Product------------------------------------#
+
 #' EIA Mapping Request
 #'
 #' @param type String with URL extension for product type
@@ -8,27 +14,16 @@
 #' @export
 #'
 #' @examples
-#'
-library(dplyr)
-library(httr)
-library(jsonlite)
-
-#------------------------------------API INFORMATION (KEY TO BE CHANGED)------------------------------------#
-
-url <- '&frequency=monthly&data[0]=value&sort[0][column]=period&sort[0][direction]=desc&offset='
-key <- 'OaPIhpkD7JVc5gb7xOTMZMh9iA9uegIVBFRj6wQg' ## Connect To Project Key Instead
-
-
-#------------------------------------Distinct Mapping Function Per Product------------------------------------#
-
 eia_map <- function(type,offset,api_key){
-  response <- httr::GET(paste0("https://api.eia.gov/v2/",type,"?api_key=", api_key,url,offset,'&length=5000')) %>%
-    httr::content(as = "text", encoding = 'UTF-8') %>%
-    jsonlite::fromJSON()
 
-  data <- response$response$data %>%
+  response <-
+    paste0("https://api.eia.gov/v2/",type,"?api_key=", api_key,url,offset,'&length=5000') %>%
+    eia_call()
+
+  data <- response$data %>%
     dplyr::select(-period, -value) %>%
     dplyr::distinct(series, .keep_all = TRUE)
+
   return(data)
 }
 
@@ -41,7 +36,7 @@ all_series <- list() ## Discuss What We Care About Mapping For This Project
 
 for (product in products){
   df <- eia_map(type = product, offset = 0,api_key = key )
-  all_series <- dplyr::append(all_series, list(df))
+  all_series <- append(all_series, list(df))
 }
 
 all_series_df <- dplyr::bind_rows(all_series)
