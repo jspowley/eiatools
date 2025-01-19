@@ -8,7 +8,7 @@ Authors@R: c(
     person("Austin", "Kaduk", ,"austinkaduk@protonmail.com", role = "aut")
     )
 Description: What the package does (one paragraph).
-License: MIT + file LICENSE
+License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

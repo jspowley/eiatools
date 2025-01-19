@@ -1,5 +1,6 @@
 #------------------------------------API INFORMATION (KEY TO BE CHANGED)------------------------------------#
 
+# key <- creds::eia_key
 url <- '&frequency=monthly&data[0]=value&sort[0][column]=period&sort[0][direction]=desc&offset='
 
 #------------------------------------Distinct Mapping Function Per Product------------------------------------#
