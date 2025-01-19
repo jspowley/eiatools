@@ -26,4 +26,12 @@ When working on a file and one of us has pushed changes after the other persons 
   
 git stash is your friend here. You may also need to do git add . depending on your changes.
 
+## 0.0.0.0002
+
+Licensing changed to proprietary on future changes. We will reship the github repo from a clean slate when we're done, to remove previous records of API keys and prior licensing. We will discuss opening the license up further when we're considering final applications.
+
+Cleaned up eia_map to be more general.
+
+Moved testing function to tests folder. Run all tests with testthat::test().
+
 

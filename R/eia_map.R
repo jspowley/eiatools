@@ -1,7 +1,6 @@
-#------------------------------------API INFORMATION (KEY TO BE CHANGED)------------------------------------#
+#------------------------------------Config------------------------------------#
 
-# key <- creds::eia_key
-url <- '&frequency=monthly&data[0]=value&sort[0][column]=period&sort[0][direction]=desc&offset='
+fixed_headers <- '&data[0]=value&sort[0][column]=period&sort[0][direction]=desc&offset='
 
 #------------------------------------Distinct Mapping Function Per Product------------------------------------#
 
@@ -15,10 +14,15 @@ url <- '&frequency=monthly&data[0]=value&sort[0][column]=period&sort[0][directio
 #' @export
 #'
 #' @examples
-eia_map <- function(type,offset,api_key){
+eia_map <- function(sub,offset,freq,api_key){
 
   response <-
-    paste0("https://api.eia.gov/v2/",type,"?api_key=", api_key,url,offset,'&length=5000') %>%
+    paste0(
+      root,
+      sub,
+      "?api_key=", api_key,
+      "&frequency=", freq,
+      fixed_headers, offset,'&length=5000') %>%
     eia_call()
 
   data <- response$data %>%
@@ -27,22 +31,6 @@ eia_map <- function(type,offset,api_key){
 
   return(data)
 }
-
-
-#------------------------------------Build DataFrame For All Available Products------------------------------------#
-
-products <- c('petroleum/pri/spt/data', 'natural-gas/pri/sum/data/') ## These Are The Only Two That Have Price Data Related (So They Maintain Consistent Columns)
-all_series <- list() ## Discuss What We Care About Mapping For This Project
-
-
-for (product in products){
-  df <- eia_map(type = product, offset = 0,api_key = key )
-  all_series <- append(all_series, list(df))
-}
-
-all_series_df <- dplyr::bind_rows(all_series)
-
-all_series_df ## Missing Multiple // Will Work On This Week, Wanted A General Idea
 
 
 
