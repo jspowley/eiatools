@@ -34,4 +34,10 @@ Cleaned up eia_map to be more general.
 
 Moved testing function to tests folder. Run all tests with testthat::test().
 
+**Notes To Discuss On Next Call:**
++ Timing of work completion / orginzation (naming conventions, folders, strcuture of code, division of work, road map, documentation).
++ Discuss temporary API key usuage.
++ Discuss data storage requirment inside package. Should we store series_ids for now to meet requirement? Could improve speed marginally as well for ShinyApp.
++ Discuss vision for eia_map - what columns are important, ideally achieving a final clean consistent map across all series.
+
 
