@@ -9,8 +9,12 @@ usethis::use_mit_license()
 
 # Data
 
-root <- "https://api.eia.gov/v2/"
-usethis::use_data(root, overwrite = TRUE)
+# Now defined internally:
+#root <- "https://api.eia.gov/v2/"
+#usethis::use_data(root, overwrite = TRUE)
+
+my_data <- "We have no need for user accessible data yet! Data is defined via testthat or for function internal use!"
+usethis::use_data(my_data, overwrite = T)
 
 # Packages
 

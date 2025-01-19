@@ -4,8 +4,7 @@ Date: 2025-01-17
 Version: 0.0.0.0002
 Authors@R: c(
     person("Justin", "Powley", ,"jpowley@ualberta.ca", role = c("cre","aut")),
-    person("Brayden", "Boyko", ,"braydenboyko@boykowealth.com", role = "aut"),
-    person("Austin", "Kaduk", ,"austinkaduk@protonmail.com", role = "aut")
+    person("Brayden", "Boyko", ,"braydenboyko@boykowealth.com", role = "aut")
     )
 Description: What the package does (one paragraph).
 License: file LICENSE
