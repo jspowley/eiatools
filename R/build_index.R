@@ -9,6 +9,6 @@
 #' @export
 #'
 #' @examples
-build_index <- function(sub = "", file_path, api_key){
-
+build_index <- function(sub = "", file_path, api_key, iter = 1){
+  m_data <- eia_meta(sub, api_key)
 }
