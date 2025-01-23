@@ -1,4 +1,4 @@
-#' EIA Get Weekly Status Reports Request
+#' EIA Get Weekly Status Report Request
 #'
 #' @param url String with the URL to given xlsx file
 #'
