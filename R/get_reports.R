@@ -1,4 +1,10 @@
-
+#' EIA Get Weekly Status Reports Request
+#'
+#' @param url String with the URL to given xlsx file
+#'
+#' @return DataFrame
+#' @export DataFrame
+#'
 
 get_reports <- function(url){
   py_install("pandas openpyxl")
