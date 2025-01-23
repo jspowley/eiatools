@@ -40,4 +40,10 @@ Moved testing function to tests folder. Run all tests with testthat::test().
 + Discuss data storage requirment inside package. Should we store series_ids for now to meet requirement? Could improve speed marginally as well for ShinyApp.
 + Discuss vision for eia_map - what columns are important, ideally achieving a final clean consistent map across all series.
 
+## 0.0.0.0003
+
+Integrated new branch to repo, named main1.
+
+Added Python integration using reticulate::py_to_r for .xls files from eia Weekly Status Reports. 
+
 
