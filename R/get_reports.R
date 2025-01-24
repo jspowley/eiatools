@@ -5,8 +5,10 @@
 #' @return DataFrame
 #' @export
 get_reports <- function(url){
+  reticulate::install_python(version = '3.11.9')
   reticulate::py_install("pandas")
   reticulate::py_install("openpyxl")
+  reticulate::py_install("xlrd")
   # Why Python? No JS dependency or out of date, broken xls package this way.
   # This is one of the 10% of use cases where python is better,
   # since the file type is niche and Python has the wider user base needed to keep the parser supported.
@@ -27,6 +29,7 @@ def data(url):
     return combined_df
 ")
   combined_df_py <- reticulate::py$data(url)
-  combined_df_r <- reticulate::py_to_r(combined_df_py) %>%
-    return()
+  combined_df_r <- reticulate::py_to_r(combined_df_py)
+
+  return(combined_df_r)
 }
