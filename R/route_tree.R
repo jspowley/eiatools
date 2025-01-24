@@ -26,7 +26,7 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
       if(is.null(output)){
         output <- layer_out
       }else{
-        dplyr::bind_rows(output, layer_out)
+        output <- dplyr::bind_rows(output, layer_out)
       }
     }
   }else{
