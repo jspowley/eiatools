@@ -15,7 +15,9 @@ Imports:
     dplyr,
     httr,
     jsonlite,
-    magrittr
+    magrittr,
+    reticulate,
+    stringr
 Depends: 
     R (>= 3.5)
 LazyData: true

@@ -4,7 +4,7 @@
 \alias{build_index}
 \title{Build_Index}
 \usage{
-build_index(sub = "", file_path, api_key)
+build_index(sub = "", file_path, api_key, iter = 1)
 }
 \arguments{
 \item{sub}{a string containing the target subdirectory beneath https://api.eia.gov/v2/ (i.e. "petroleum/sum")}
