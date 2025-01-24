@@ -5,9 +5,11 @@
 #' @param iter A counter used in recursion, internal to the function
 #' @param iter_offset A reindexing value used in recursion, internal to the function
 #'
-#' @return A metadata dataframe
+#' @return A metadata tibble
 #' @export
 route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
+
+  print(sub)
 
   output <- NULL
   m_data <- eia_meta(sub = sub, api_key = api_key)
@@ -47,6 +49,13 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
     facet_types <- get_facet_types(m_data = m_data)
     data_types <- get_data_types(m_data = m_data)
 
+    print(str(data_types))
+    print(str(facet_types))
+
+    if(is.list(data_types) & length(data_types) == 0){
+      data_types <- NA
+    }
+
     layer_out <- data.frame(
       api_endpoint = api_endpoint,
       freq = I(list(freqs)),
@@ -57,7 +66,14 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
 
     for(f in facet_types){
       facet_data <- get_facet_data(sub = sub, facet_id = f, api_key = api_key)
-      layer_out <- layer_out %>% dplyr::mutate(!!rlang::sym(f) := I(list(facet_data)))
+
+      if(!(is.list(facet_data) & length(facet_data) == 0)){
+
+      layer_out <- layer_out %>%
+        dplyr::mutate(
+          !!rlang::sym(f) := tidyr::nest(facet_data),
+          !!rlang::sym(f) := purrr::map(!!rlang::sym(f),1))
+      }
     }
 
     return(layer_out)
@@ -76,6 +92,6 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
     }
   }
 
-  return(output)
+  return(output %>% tibble::as_tibble())
 
 }

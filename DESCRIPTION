@@ -1,6 +1,6 @@
 Package: eiatools
 Title: What the Package Does (One Line, Title Case)
-Date: 2025-01-17
+Date: 2025-01-24
 Version: 0.0.0.0002
 Authors@R: c(
     person("Justin", "Powley", ,"jpowley@ualberta.ca", role = c("cre","aut")),
@@ -16,8 +16,10 @@ Imports:
     httr,
     jsonlite,
     magrittr,
+    purrr,
     reticulate,
-    rlang
+    rlang,
+    tibble
 Depends: 
     R (>= 3.5)
 LazyData: true
