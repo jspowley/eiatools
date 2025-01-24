@@ -1,7 +1,11 @@
-route_tree <- function(sub = "", api_key, iter = 1){
+route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
 
   output <- NULL
   m_data <- eia_meta(sub = sub, api_key = api_key)
+
+  if(iter == 1 & (!sub == "" | is.na(sub) | is.null(sub))){
+    iter_offset <- 0
+  }
 
   if(detect_routes(m_data = m_data)){
     routes <- get_routes(m_data)
@@ -9,32 +13,42 @@ route_tree <- function(sub = "", api_key, iter = 1){
     for(i in 1:nrow(routes)){
 
       next_path <- paste0(sub,"/", routes$id[i])
-      layer_out <- route_tree(sub = next_path, api_key = api_key, iter = iter + 1) %>%
-        dplyr::mutate(!!sym(paste0("route_",iter+1,"_id")) := routes$id[i])
+      layer_out <- route_tree(sub = next_path, api_key = api_key, iter = iter + 1, iter_offset = iter_offset) %>%
+        dplyr::mutate(!!rlang::sym(paste0("route_",iter+iter_offset,"_id")) := routes$id[i])
 
       if("name" %in% names(routes)){
-        layer_out <- layer_out %>% dplyr::mutate(!!sym(paste0("route_",iter+1,"_name")) := routes$name[i])
+        layer_out <- layer_out %>% dplyr::mutate(!!rlang::sym(paste0("route_",iter+iter_offset,"_name")) := routes$name[i])
       }
       if("description" %in% names(routes)){
-        layer_out <- layer_out %>% dplyr::mutate(!!sym(paste0("route_",iter+1,"_description")) := routes$description[i])
+        layer_out <- layer_out %>% dplyr::mutate(!!rlang::sym(paste0("route_",iter+iter_offset,"_description")) := routes$description[i])
+      }
+
+      if(is.null(output)){
+        output <- layer_out
+      }else{
+        dplyr::bind_rows(output, layer_out)
       }
     }
-
-    return(routes)
   }else{
 
     layer_out <- NULL
     api_endpoint <- sub
-    freqs <- get_all_freq(m_data)
+    freqs <- get_all_freq(m_data = m_data)
 
-    layer_out <- data.frame(api_endpoint = api_endpoint, freq = freqs)
+    facet_types <- get_facet_types(m_data = m_data)
+    layer_out <- data.frame(api_endpoint = api_endpoint, freq = I(list(freqs)), facets = I(list(facet_types)))
+
+
+    for(f in facet_types){
+      facet_data <- get_facet_data(sub = sub, facet_id = f, api_key = api_key)
+      layer_out <- layer_out %>% dplyr::mutate(!!rlang::sym(f) := I(list(facet_data)))
+    }
+
     return(layer_out)
-
-    facet_opts
 
   }
 
-  if(iter == 1){
+  if(iter == 1 & (!sub == "" | is.na(sub) | is.null(sub))){
     if("name" %in% names(m_data)){
       output <- output %>% dplyr::mutate(route_1_name = m_data$name)
     }

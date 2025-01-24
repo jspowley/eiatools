@@ -17,6 +17,7 @@ Imports:
     jsonlite,
     magrittr,
     reticulate,
+    rlang,
     stringr
 Depends: 
     R (>= 3.5)
