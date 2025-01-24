@@ -4,10 +4,12 @@
 \alias{eia_call}
 \title{eia_call}
 \usage{
-eia_call(endpoint)
+eia_call(endpoint, sleep = 2)
 }
 \arguments{
 \item{endpoint}{a url endpoint, with headers attached}
+
+\item{sleep}{integer of number of seconds to wait before continuing}
 }
 \value{
 A response in json list format

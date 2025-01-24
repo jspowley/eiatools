@@ -3,9 +3,7 @@
 #' @param url String with the URL to given xlsx file
 #'
 #' @return DataFrame
-#' @export DataFrame
-#'
-
+#' @export
 get_reports <- function(url){
   reticulate::py_install("pandas")
   reticulate::py_install("openpyxl")

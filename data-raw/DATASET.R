@@ -5,7 +5,8 @@
 usethis::use_pipe()
 usethis::use_mit_license()
 
-# Why not reference the Description file here? I can understand for datasets, since we can modify and redploy with ease.
+# Why not reference the Description file here? I can understand for datasets, since we can modify and redeploy with ease,
+# but when Description is the universal space for defining package imports, I'd expect a team member to go there.
 
 # Data
 
@@ -15,6 +16,10 @@ usethis::use_mit_license()
 
 my_data <- "We have no need for user accessible data yet! Data is defined via testthat or for function internal use!"
 usethis::use_data(my_data, overwrite = T)
+
+devtools::load_all()
+route_tree_sample <- route_tree("petroleum/sum", creds::eia_key)
+usethis::use_data(route_tree_sample, overwrite = T)
 
 # Packages
 

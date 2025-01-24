@@ -4,7 +4,7 @@
 \alias{build_index}
 \title{Build_Index}
 \usage{
-build_index(sub = "", file_path, api_key, iter = 1)
+build_index(sub = "", file_path, api_key)
 }
 \arguments{
 \item{sub}{a string containing the target subdirectory beneath https://api.eia.gov/v2/ (i.e. "petroleum/sum")}
@@ -14,5 +14,5 @@ build_index(sub = "", file_path, api_key, iter = 1)
 \item{api_key}{a string containing your eia api key}
 }
 \description{
-The bread and butter of this package. Build Index lets you build a directory through recursive metadata and data calls, cataloging all endpoints and accessible tables.
+Intended for use after a metadata tree has been created using route_tree(). Not currently implemented
 }

@@ -16,7 +16,7 @@ eia_map(sub, offset, freq, api_key)
 \item{api_key}{String with your EIA API key}
 }
 \value{
-A DataFrame containing the unique identifiers for all products
+A DataFrame containing the unique identifiers for updated/recent data for products
 }
 \description{
 EIA Mapping Request

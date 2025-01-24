@@ -2,7 +2,7 @@
 #'
 #' @param category String listing report name, options('petroleum')
 #' @return DataFrame
-#' @export DataFrame
+#' @export
 
 ## Missing Other Reports - Discuss Which Reports Needed In This Format
 

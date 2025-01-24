@@ -5,8 +5,6 @@
 #'
 #' @return A list containing the json data
 #' @export
-#'
-#' @examples
 eia_meta <- function(sub, api_key){
   paste0(root,sub,"?api_key=", api_key) %>%
     eia_call() %>%

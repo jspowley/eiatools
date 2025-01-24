@@ -1,6 +1,7 @@
 #' eia_call
 #'
 #' @param endpoint a url endpoint, with headers attached
+#' @param sleep integer of number of seconds to wait before continuing
 #'
 #' @return A response in json list format
 eia_call <- function(endpoint, sleep = 2){

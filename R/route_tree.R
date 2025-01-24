@@ -1,3 +1,12 @@
+#' EIA Meta Data Tree
+#'
+#' @param sub A subdirectory on EIA's api url, for example, "petroleum"
+#' @param api_key Your eia api key
+#' @param iter A counter used in recursion, internal to the function
+#' @param iter_offset A reindexing value used in recursion, internal to the function
+#'
+#' @return A metadata dataframe
+#' @export
 route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
 
   output <- NULL

@@ -4,8 +4,6 @@
 #'
 #' @return A list of strings containing API and Excel Versions for EIA's web service
 #' @export
-#'
-#' @examples
 eia_version <- function(api_key){
 
   buffer <-

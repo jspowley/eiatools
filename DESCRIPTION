@@ -17,8 +17,7 @@ Imports:
     jsonlite,
     magrittr,
     reticulate,
-    rlang,
-    stringr
+    rlang
 Depends: 
     R (>= 3.5)
 LazyData: true

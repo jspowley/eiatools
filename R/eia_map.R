@@ -16,10 +16,8 @@ default_headers <- list(
 #' @param api_key String with your EIA API key
 #' @param freq String with an EIA frequency code
 #'
-#' @return A DataFrame containing the unique identifiers for all products
+#' @return A DataFrame containing the unique identifiers for updated/recent data for products
 #' @export
-#'
-#' @examples
 eia_map <- function(sub,offset,freq,api_key){
 
   path <- paste0(root,sub)
