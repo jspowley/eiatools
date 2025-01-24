@@ -36,8 +36,15 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
     freqs <- get_all_freq(m_data = m_data)
 
     facet_types <- get_facet_types(m_data = m_data)
-    layer_out <- data.frame(api_endpoint = api_endpoint, freq = I(list(freqs)), facets = I(list(facet_types)))
+    data_types <- get_data_types(m_data = m_data)
 
+    layer_out <- data.frame(
+      api_endpoint = api_endpoint,
+      freq = I(list(freqs)),
+      facets = I(list(facet_types)),
+      data = I(list(data_types)),
+      start_period = m_data$startPeriod,
+      end_period = m_data$endPeriod)
 
     for(f in facet_types){
       facet_data <- get_facet_data(sub = sub, facet_id = f, api_key = api_key)
