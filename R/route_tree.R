@@ -49,12 +49,15 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
     facet_types <- get_facet_types(m_data = m_data)
     data_types <- get_data_types(m_data = m_data)
 
-    print(str(data_types))
-    print(str(facet_types))
+    # print(str(data_types))
+    # print(str(facet_types))
 
     if(is.list(data_types) & length(data_types) == 0){
       data_types <- NA
     }
+
+    if(is.null(m_data$startPeriod)){m_data$startPeriod <- NA}
+    if(is.null(m_data$endPeriod)){m_data$endPeriod <- NA}
 
     layer_out <- data.frame(
       api_endpoint = api_endpoint,
@@ -62,7 +65,8 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
       facets = I(list(facet_types)),
       data = I(list(data_types)),
       start_period = m_data$startPeriod,
-      end_period = m_data$endPeriod)
+      end_period = m_data$endPeriod
+    )
 
     for(f in facet_types){
       facet_data <- get_facet_data(sub = sub, facet_id = f, api_key = api_key)

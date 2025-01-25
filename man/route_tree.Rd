@@ -16,7 +16,7 @@ route_tree(sub = "", api_key, iter = 1, iter_offset = 1)
 \item{iter_offset}{A reindexing value used in recursion, internal to the function}
 }
 \value{
-A metadata dataframe
+A metadata tibble
 }
 \description{
 EIA Meta Data Tree

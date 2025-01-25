@@ -19,7 +19,8 @@ Imports:
     purrr,
     reticulate,
     rlang,
-    tibble
+    tibble,
+    tidyr
 Depends: 
     R (>= 3.5)
 LazyData: true

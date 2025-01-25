@@ -8,6 +8,6 @@
 #' @export
 get_facet_data <- function(sub, facet_id, api_key){
   f_data <- eia_meta(sub = paste0(sub,"/facet/", facet_id), api_key = api_key)
-  print(str(f_data$facets))
+  # print(str(f_data$facets))
   return(f_data$facets)
 }
