@@ -14,7 +14,7 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
   output <- NULL
   m_data <- eia_meta(sub = sub, api_key = api_key)
 
-  if(iter == 1 & (!sub == "" | is.na(sub) | is.null(sub))){
+  if(iter == 1 & (sub == "" | is.na(sub) | is.null(sub))){
     iter_offset <- 0
   }
 
