@@ -61,5 +61,5 @@ eia_data <- function(
     api_req <- paste0(api_req, "&sort[", i-1, "][column]=", sort_df[i,]$sortby, "&sort[", i-1, "][direction]=", sort_df[i,]$direction)
   }
 
-  return(api_req)
+  return(api_req %>% eia_call() %>% .$data)
 }
