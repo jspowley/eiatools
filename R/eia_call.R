@@ -6,7 +6,7 @@
 #' @return A response in json list format
 eia_call <- function(endpoint, sleep = 2){
 
-  print(endpoint)
+  # print(endpoint)
   response <- httr::GET(endpoint) %>%
     httr::content(as = "text", encoding = 'UTF-8') %>%
     jsonlite::fromJSON()

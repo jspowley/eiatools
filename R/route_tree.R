@@ -9,7 +9,7 @@
 #' @export
 route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
 
-  print(sub)
+  # print(sub)
 
   output <- NULL
   m_data <- eia_meta(sub = sub, api_key = api_key)
@@ -18,9 +18,9 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
     iter_offset <- 0
   }
 
-  print("Entering route detection")
+  # print("Entering route detection")
   if(detect_routes(m_data = m_data)){
-    print("Routes exist")
+    # print("Routes exist")
     routes <- get_routes(m_data)
 
     for(i in 1:nrow(routes)){
@@ -43,7 +43,7 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
       }
     }
   }else{
-    print("Routes don't exist")
+    # print("Routes don't exist")
     layer_out <- NULL
     api_endpoint <- sub
     freqs <- get_all_freq(m_data = m_data)
@@ -61,7 +61,7 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
     if(is.null(m_data$startPeriod)){m_data$startPeriod <- NA}
     if(is.null(m_data$endPeriod)){m_data$endPeriod <- NA}
 
-    print("creating endpoint layer")
+    # print("creating endpoint layer")
     layer_out <- data.frame(
       api_endpoint = api_endpoint,
       freq = I(list(freqs)),
@@ -70,10 +70,10 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
       start_period = m_data$startPeriod,
       end_period = m_data$endPeriod
     )
-    print("exiting endpoint layer")
+    # print("exiting endpoint layer")
 
     for(f in facet_types){
-      print(paste0("creating facet table",f))
+      # print(paste0("creating facet table",f))
       facet_data <- get_facet_data(sub = sub, facet_id = f, api_key = api_key)
 
       if(!(is.list(facet_data) & length(facet_data) == 0)){
@@ -104,6 +104,6 @@ route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
     }
   }
 
-  return(output %>% tibble::as_tibble())
+  return(output %>% tibble::as_tibble() %>% dplyr::mutate(nickname = NA))
 
 }
