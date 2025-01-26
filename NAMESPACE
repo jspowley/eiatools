@@ -2,6 +2,7 @@
 
 export("%>%")
 export(build_index)
+export(eia_data)
 export(eia_map)
 export(eia_meta)
 export(eia_reports)
