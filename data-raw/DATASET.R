@@ -21,6 +21,9 @@ devtools::load_all()
 route_tree_sample <- route_tree("petroleum/sum", creds::eia_key)
 usethis::use_data(route_tree_sample, overwrite = T)
 
+PET <- route_tree("petroleum", creds::eia_key)
+usethis::use_data(PET, overwrite = T)
+
 # Packages
 
 usethis::use_r("dplyr")

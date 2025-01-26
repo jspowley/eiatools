@@ -14,6 +14,6 @@ my_data
 A string
 }
 \description{
-A test data point with a cheeky comment about our packages current needs.
+A test data point with a cheeky comment about our packages current needs. Cheeky comment no longer applys. It remains purely for humours sake.
 }
 \keyword{datasets}
