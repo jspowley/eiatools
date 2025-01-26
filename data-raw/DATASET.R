@@ -27,11 +27,57 @@ usethis::use_data(PET, overwrite = T)
 STEO <- route_tree("steo", creds::eia_key)
 usethis::use_data(STEO, overwrite = T)
 
-# Packages
+# Improved Data Definition for piece-wise index updating
+library(devtools)
+devtools::load_all()
 
-usethis::use_r("dplyr")
-usethis::use_r("httr")
-usethis::use_r("jsonlite")
-usethis::use_r("lubridate")
-usethis::use_r("stringr")
-usethis::use_r("reticulate")
+# Selecting Update Ranges
+paths <- eia_meta("", creds::eia_key) %>% get_routes()
+paths$id
+selections <- c("seds")
+
+# Getting Updates Routes
+r_updates = list()
+for(p in 1:length(selections)){
+  r_updates[p] <- list(route_tree(selections[p], creds::eia_key))
+  names(r_updates)[p] <- selections[p]
+}
+
+# Applying Updates to Routes
+tryCatch({
+  route_index_old <- eiatools::route_index
+  print("Ready to update existing index")
+  for(p in 1:length(r_updates)){
+    print(names(r_updates)[p])
+    print(str(list(r_updates[names(r_updates)[p]])))
+    route_index_old[names(r_updates)[p]] <- list(r_updates[names(r_updates)[p]][[1]])
+  }
+  route_index <- route_index_old
+  usethis::use_data(route_index, overwrite = T)
+  print("Overlaying existing index")
+}, error = function(e){
+  route_index <- r_updates
+  usethis::use_data(route_index, overwrite = T)
+  print("Doesn't exist yet.")
+})
+
+# route_index <- list()
+# usethis::use_data(route_index, overwrite = T)
+
+load_all()
+eiatools::route_index
+
+PET <- NULL
+STEO <- NULL
+COAL <- NULL
+PET_IMPORT <- NULL
+ELEC <- NULL
+INTER <- NULL
+NG <- NULL
+NUCL_OUT <- NULL
+SEDS <- NULL
+STEO <- NULL
+
+library(rlang)
+!!sym("PET1") <- 1
+

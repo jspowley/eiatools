@@ -63,17 +63,20 @@ data_tree <- function(r_tree, api_key){
       dplyr::bind_cols(
         r_row %>%
           dplyr::select(
-            api_endpoint,
-            facets,
-            data,
-            route_1_id,
-            route_1_name,
-            route_1_description,
-            route_2_id,
-            route_2_name,
-            route_3_id,
-            route_3_name,
-            route_3_description))
+            dplyr::any_of(
+            c(
+            "api_endpoint",
+            "facets",
+            "data",
+            "route_1_id",
+            "route_1_name",
+            "route_1_description",
+            "route_2_id",
+            "route_2_name",
+            "route_2_description",
+            "route_3_id",
+            "route_3_name",
+            "route_3_description"))))
 
     if(is.null(output)){
       output <- data_out
