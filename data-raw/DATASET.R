@@ -24,6 +24,9 @@ usethis::use_data(route_tree_sample, overwrite = T)
 PET <- route_tree("petroleum", creds::eia_key)
 usethis::use_data(PET, overwrite = T)
 
+STEO <- route_tree("steo", creds::eia_key)
+usethis::use_data(STEO, overwrite = T)
+
 # Packages
 
 usethis::use_r("dplyr")

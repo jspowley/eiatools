@@ -15,3 +15,9 @@
 #' @format A dataframe
 #' @return A dataframe
 "PET"
+
+#' dataset: route_tree_sample
+#' @description Endpoints for EIA STEO
+#' @format A dataframe
+#' @return A dataframe
+"STEO"
