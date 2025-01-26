@@ -23,7 +23,7 @@ eia_data <- function(
   offset = NA, #
   api_key){ #
 
-  api_req <- paste0(root, api_endpoint, "/data", "?api_key=", api_key)
+  api_req <- paste0(root, api_endpoint, "/data", "?api_key=", api_key, "&length=5000")
 
   # Adding start header
   if(!is.na(start)){
@@ -47,7 +47,7 @@ eia_data <- function(
       api_req <- paste0(api_req, "&data[", i-1, "]=", data_types[i])
     }
   }else{
-    warning("Won't perform a data/value pull without data types.")
+    # warning("Won't perform a data/value pull without data types.")
   }
 
   # Adding facets from facet df
