@@ -59,3 +59,6 @@ tryCatch({
   usethis::use_data(route_index, overwrite = T)
   print("Doesn't exist yet.")
 })
+
+load_all()
+eiatools::route_index
