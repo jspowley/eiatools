@@ -23,4 +23,32 @@ server <- function(input, output) {
   output$html <- renderUI({
     HTML("<h3>Reports Content Goes Here</h3>")
   })
+  
+  output$market1 <- renderPlot({
+    x <- seq_len(input$num_points)
+    y <- rnorm(input$num_points)
+    plot(x, y, type = "l", col = "blue", lwd = 2,
+         xlab = "X-Axis", ylab = "Y-Axis", main = "Petroleum Prices")
+  })
+  
+  output$market2 <- renderPlot({
+    x <- seq_len(input$num_points)
+    y <- rnorm(input$num_points)
+    plot(x, y, type = "l", col = "blue", lwd = 2,
+         xlab = "X-Axis", ylab = "Y-Axis", main = "Petroleum Production")
+  })
+  
+  output$market3 <- renderPlot({
+    x <- seq_len(input$num_points)
+    y <- rnorm(input$num_points)
+    plot(x, y, type = "l", col = "blue", lwd = 2,
+         xlab = "X-Axis", ylab = "Y-Axis", main = "Coal Prices")
+  })
+  
+  output$market4 <- renderPlot({
+    x <- seq_len(input$num_points)
+    y <- rnorm(input$num_points)
+    plot(x, y, type = "l", col = "blue", lwd = 2,
+         xlab = "X-Axis", ylab = "Y-Axis", main = "Coal Production")
+  })
 }
