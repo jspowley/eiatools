@@ -46,4 +46,6 @@ Integrated new branch to repo, named main1.
 
 Added Python integration using reticulate::py_to_r for .xls files from eia Weekly Status Reports. 
 
+Added ShinyApp integration - Four File Deployment Working. (No Data Connected At This Time)
+
 
