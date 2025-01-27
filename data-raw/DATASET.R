@@ -59,24 +59,3 @@ tryCatch({
   usethis::use_data(route_index, overwrite = T)
   print("Doesn't exist yet.")
 })
-
-# route_index <- list()
-# usethis::use_data(route_index, overwrite = T)
-
-load_all()
-eiatools::route_index
-
-PET <- NULL
-STEO <- NULL
-COAL <- NULL
-PET_IMPORT <- NULL
-ELEC <- NULL
-INTER <- NULL
-NG <- NULL
-NUCL_OUT <- NULL
-SEDS <- NULL
-STEO <- NULL
-
-library(rlang)
-!!sym("PET1") <- 1
-
