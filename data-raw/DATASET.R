@@ -98,3 +98,11 @@ tryCatch({
 
 load_all()
 eiatools::data_index
+
+# Ensuring placeholder cols exist
+# data_index_old <- eiatools::data_index
+# for(p in 1:length(data_index_old)){
+#  data_index_old[p][[1]] <- data_index_old[p][[1]] %>% dplyr::mutate(nickname = NA)
+#}
+#data_index <- data_index_old
+#usethis::use_data(data_index, overwrite = T)
