@@ -30,11 +30,16 @@ data_tree <- function(r_tree, api_key){
           offset = offset,
           api_key = api_key)
 
+        print("Data fetched")
+        print(str(d))
+
         if(length(d)>0){
 
         if(is.null(d)){
+          print("Assigned new d_out")
           d_out <- d
         }else{
+          print("Row expanded d_out")
           d_out <- dplyr::bind_rows(d_out, d)
         }
 
@@ -42,12 +47,15 @@ data_tree <- function(r_tree, api_key){
         dist_count <- nrow(d_out %>% dplyr::select(-period) %>% dplyr::distinct())
 
         if(dist_count < r_count){
+          print("Range narrowed, exiting")
           found_duplicates <- TRUE
         }else{
+          print("Increasing Offset")
           offset <- offset + 5000
         }
 
         }else{
+          print("Exiting due to zero length list")
           found_duplicates <- TRUE
         }
 

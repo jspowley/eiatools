@@ -65,7 +65,10 @@ eiatools::route_index
 
 # Data Tree Updates (one at a time)
 
-selection <- "coal"
+paths <- eia_meta("", creds::eia_key) %>% get_routes()
+paths$id
+
+selection <- "co2-emissions"
 route_table <- eiatools::route_index[selection][[1]]
 d_updates <- NULL
 for(r in 1:nrow(route_table)){
@@ -94,4 +97,4 @@ tryCatch({
 })
 
 load_all()
-eiatools::data_index$international
+eiatools::data_index
