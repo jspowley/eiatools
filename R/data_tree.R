@@ -30,6 +30,8 @@ data_tree <- function(r_tree, api_key){
           offset = offset,
           api_key = api_key)
 
+        if(length(d)>0){
+
         if(is.null(d)){
           d_out <- d
         }else{
@@ -45,8 +47,13 @@ data_tree <- function(r_tree, api_key){
           offset <- offset + 5000
         }
 
+        }else{
+          found_duplicates <- TRUE
+        }
+
       }
 
+      if(!is.null(d_out)){
       d_out <- d_out %>%
         dplyr::select(-period) %>%
         dplyr::distinct() %>%
@@ -57,8 +64,10 @@ data_tree <- function(r_tree, api_key){
       }else{
         data_out <- dplyr::bind_rows(data_out, d_out)
       }
+      }
     }
 
+    if(!is.null(data_out)){
     data_out <- data_out %>%
       dplyr::bind_cols(
         r_row %>%
@@ -83,6 +92,7 @@ data_tree <- function(r_tree, api_key){
     }else{
       output <- dplyr::bind_rows(output, data_out)
     }
+    }
   }
-  return(output)
+  return(output %>% tibble::as_tibble())
 }

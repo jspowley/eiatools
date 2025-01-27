@@ -62,3 +62,36 @@ tryCatch({
 
 load_all()
 eiatools::route_index
+
+# Data Tree Updates (one at a time)
+
+selection <- "coal"
+route_table <- eiatools::route_index[selection][[1]]
+d_updates <- NULL
+for(r in 1:nrow(route_table)){
+  d_out <- data_tree(route_table[r,], creds::eia_key)
+  if(!is.null(d_out)){
+  if(is.null(d_updates)){
+    d_updates <- d_out
+  }else{
+    d_updates <- dplyr::bind_rows(d_updates, d_out)
+  }
+  }
+}
+
+tryCatch({
+  data_index_old <- eiatools::data_index
+  print("Ready to update existing index")
+  data_index_old[selection] <- list(d_updates)
+  data_index <- data_index_old
+  usethis::use_data(data_index, overwrite = T)
+  print("Overlaying existing index")
+}, error = function(e){
+  data_index <- list()
+  data_index[selection] <- list(d_updates)
+  usethis::use_data(data_index, overwrite = T)
+  print("Doesn't exist yet.")
+})
+
+load_all()
+eiatools::data_index$international
