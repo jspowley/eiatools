@@ -9,7 +9,7 @@
 #' @export
 route_tree <- function(sub = "", api_key, iter = 1, iter_offset = 1){
 
-  # print(sub)
+  print(sub)
 
   output <- NULL
   m_data <- eia_meta(sub = sub, api_key = api_key)

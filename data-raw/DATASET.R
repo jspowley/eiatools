@@ -3,7 +3,6 @@
 # Init
 
 usethis::use_pipe()
-usethis::use_mit_license()
 
 # Why not reference the Description file here? I can understand for datasets, since we can modify and redeploy with ease,
 # but when Description is the universal space for defining package imports, I'd expect a team member to go there.
@@ -14,18 +13,18 @@ usethis::use_mit_license()
 #root <- "https://api.eia.gov/v2/"
 #usethis::use_data(root, overwrite = TRUE)
 
-my_data <- "We have no need for user accessible data yet! Data is defined via testthat or for function internal use!"
-usethis::use_data(my_data, overwrite = T)
+# my_data <- "We have no need for user accessible data yet! Data is defined via testthat or for function internal use!"
+# usethis::use_data(my_data, overwrite = T)
 
-devtools::load_all()
-route_tree_sample <- route_tree("petroleum/sum", creds::eia_key)
-usethis::use_data(route_tree_sample, overwrite = T)
+# devtools::load_all()
+# route_tree_sample <- route_tree("petroleum/sum", creds::eia_key)
+# usethis::use_data(route_tree_sample, overwrite = T)
 
-PET <- route_tree("petroleum", creds::eia_key)
-usethis::use_data(PET, overwrite = T)
+# PET <- route_tree("petroleum", creds::eia_key)
+# usethis::use_data(PET, overwrite = T)
 
-STEO <- route_tree("steo", creds::eia_key)
-usethis::use_data(STEO, overwrite = T)
+# STEO <- route_tree("steo", creds::eia_key)
+# usethis::use_data(STEO, overwrite = T)
 
 # Improved Data Definition for piece-wise index updating
 library(devtools)
@@ -34,9 +33,9 @@ devtools::load_all()
 # Selecting Update Ranges
 paths <- eia_meta("", creds::eia_key) %>% get_routes()
 paths$id
-selections <- c("seds")
+selections <- c("co2-emissions")
 
-# Getting Updates Routes
+# Getting Updated Routes
 r_updates = list()
 for(p in 1:length(selections)){
   r_updates[p] <- list(route_tree(selections[p], creds::eia_key))
