@@ -1,6 +1,6 @@
 ui <- navbarPage(
   title = tags$div(
-    tags$img(src = "design/DarkMode Logo.png", height = "30px", style = "margin-right: 10px;"),
+    tags$img(src = "https://github.com/jspowley/eiatools/raw/refs/heads/main1/design/DarkMode%20Logo.png", height = "40px", style = "margin-right: 10px;"),
     "",
     style = "display: flex; align-items: center;"
   ),
@@ -51,8 +51,9 @@ ui <- navbarPage(
 
   tabPanel("Settings",
            fluidPage(
-             h2("Reports Page"),
-             p("This Page Will Allow For API Key Addition")
+             h2("User Settings"),
+             textInput("text_input", "ENTER API KEY:"),
+             actionButton("submit_button", "Submit")
            )
   ),
 
