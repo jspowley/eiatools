@@ -1,15 +1,14 @@
-library(shiny)
-
 ui <- navbarPage(
   title = tags$div(
-    tags$img(src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Eia-logomark.svg/1200px-Eia-logomark.svg.png", height = "30px", style = "margin-right: 10px;"),
-    "eia Tools",
+    tags$img(src = "design/DarkMode Logo.png", height = "30px", style = "margin-right: 10px;"),
+    "",
     style = "display: flex; align-items: center;"
   ),
   header = tags$head(
     tags$style(HTML("
       body {
-        background-color: #f0f8ff;
+        background-color: #202020;
+        color: white;
       }
       .header-container {
         display: flex;
@@ -27,9 +26,36 @@ ui <- navbarPage(
         margin-right: 20px;
         font-family: 'Terminal', monospace;
       }
+      .navbar {
+        background-color: #202020 !important;
+      }
+      .navbar-header {
+        background-color: #202020 !important;
+      }
+      h1, h2, h3, h4, h5, h6, p, li, a {
+        color: white !important;
+      }
+      .navbar-nav > .active > a,
+      .navbar-nav > .active > a:focus,
+      .navbar-nav > .active > a:hover {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+      }
+      /* Change hover color for tabs */
+      .navbar-nav > li > a:hover {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+      }
     "))
   ),
-  
+
+  tabPanel("Settings",
+           fluidPage(
+             h2("Reports Page"),
+             p("This Page Will Allow For API Key Addition")
+           )
+  ),
+
   tabPanel("Markets",
            fluidPage(
              h2("Key Markets"),
@@ -43,7 +69,7 @@ ui <- navbarPage(
              )
            )
   ),
-  
+
   tabPanel("Data Visualization",
            sidebarLayout(
              sidebarPanel(
@@ -64,28 +90,21 @@ ui <- navbarPage(
              )
            )
   ),
-  
+
   tabPanel("Models",
            fluidPage(
              h2("Models Page"),
              p("This is the models page content.")
            )
   ),
-  
+
   tabPanel("Reports",
            fluidPage(
              h2("Reports Page"),
              p("This is the reports page content.")
            )
   ),
-  
-  tabPanel("Settings",
-           fluidPage(
-             h2("Reports Page"),
-             p("This Page Will Allow For API Key Addition")
-           )
-  ),
-  
+
   tabPanel("Contact",
            fluidPage(
              h2("Contact Page"),

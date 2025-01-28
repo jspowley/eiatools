@@ -102,5 +102,5 @@ data_tree <- function(r_tree, api_key){
     }
     }
   }
-  return(output %>% tibble::as_tibble())
+  return(output %>% dplyr::mutate(nickname = NA) %>% tibble::as_tibble())
 }
