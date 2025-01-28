@@ -109,9 +109,8 @@ ui <- navbarPage(
                selectizeInput(inputId = "dropdown_source",label = "Select a Source", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
                selectizeInput(inputId = "dropdown_category",label = "Select a Category", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
                selectizeInput(inputId = "dropdown_series",label = "Select a Series", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
-               actionButton("csv_button", "Download CSV"),
-               actionButton("r_button", "Download API"),
-               actionButton("image_button", "Download PNG")
+               selectizeInput(inputId = "dropdown_tool",label = "Select a Tool", choices = tools_list, selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+               actionButton("data_vis_submit", "Generate Visualization")
              ),
              mainPanel(
                tabsetPanel(
@@ -120,7 +119,10 @@ ui <- navbarPage(
                  tabPanel("Area", plotOutput("AreaChart")),
                  tabPanel("Table", tableOutput("table"))
                ),
-               tags$div(class = "custom-class", "Source: eia.gov")
+               tags$div(class = "custom-class", "Source: eia.gov"),
+               actionButton("csv_button", "Download CSV"),
+               actionButton("r_button", "Download API"),
+               actionButton("image_button", "Download PNG")
              )
            )
   ),
