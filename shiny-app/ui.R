@@ -1,7 +1,7 @@
 ui <- navbarPage(
   title = tags$div(
-    tags$img(src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Eia-logomark.svg/1200px-Eia-logomark.svg.png", height = "30px", style = "margin-right: 10px;"),
-    "eia Tools",
+    tags$img(src = "design/DarkMode Logo.png", height = "30px", style = "margin-right: 10px;"),
+    "",
     style = "display: flex; align-items: center;"
   ),
   header = tags$head(
