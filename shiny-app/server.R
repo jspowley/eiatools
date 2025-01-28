@@ -11,9 +11,27 @@ server <- function(input, output) {
     data <- data.frame(x, y)
 
     ggplot(data, aes(x = x, y = y)) +
-      geom_point(color = "blue") +
-      labs(title = "Scatter Plot", x = "X-Axis", y = "Y-Axis") +
-      theme_minimal()
+      geom_point(color = "white", size = 2) +
+      labs(title = "Coal Production", x = "Time", y = "Production") +
+      theme(
+        panel.background = element_rect(fill = "#202020"),
+        panel.border = element_blank(),
+
+        plot.background = element_rect(fill = "#202020"),
+        plot.title = element_text(size = 14, color = "white", face = "bold"),
+
+        panel.grid.major = element_line(color = "lightgrey", linetype = "dotted"),
+        panel.grid.minor = element_line(color = "lightgrey", linetype = "dotted"),
+
+        axis.line = element_line(color = "white"),
+        axis.title.x = element_text(size = 12, color = "white"),
+        axis.title.y = element_text(size = 12, color = "white"),
+        axis.text = element_text(color = "white"),
+
+        legend.title = element_text(size = 12, color = "white"),
+        legend.text = element_text(size = 10, color = "white"),
+        legend.position = "none"
+      )
   })
 
   output$lineChart <- renderPlot({
@@ -22,9 +40,27 @@ server <- function(input, output) {
     data <- data.frame(x, y)
 
     ggplot(data, aes(x = x, y = y)) +
-      geom_line(color = "blue", size = 1.5) +
-      labs(title = "Line Chart", x = "X-Axis", y = "Y-Axis") +
-      theme_minimal()
+      geom_line(color = "white", size = 0.8) +
+      labs(title = "Coal Production", x = "Time", y = "Production") +
+      theme(
+        panel.background = element_rect(fill = "#202020"),
+        panel.border = element_blank(),
+
+        plot.background = element_rect(fill = "#202020"),
+        plot.title = element_text(size = 14, color = "white", face = "bold"),
+
+        panel.grid.major = element_line(color = "lightgrey", linetype = "dotted"),
+        panel.grid.minor = element_line(color = "lightgrey", linetype = "dotted"),
+
+        axis.line = element_line(color = "white"),
+        axis.title.x = element_text(size = 12, color = "white"),
+        axis.title.y = element_text(size = 12, color = "white"),
+        axis.text = element_text(color = "white"),
+
+        legend.title = element_text(size = 12, color = "white"),
+        legend.text = element_text(size = 10, color = "white"),
+        legend.position = "none"
+      )
   })
 
   output$AreaChart <- renderPlot({
@@ -33,10 +69,28 @@ server <- function(input, output) {
     data <- data.frame(x, y)
 
     ggplot(data, aes(x = x, y = y)) +
-      geom_area(fill = "lightblue", alpha = 0.5) +
-      geom_line(color = "blue", size = 1.5) +
-      labs(title = "Area Chart", x = "X-Axis", y = "Y-Axis") +
-      theme_minimal()
+      geom_area(fill = "lightblue", alpha = 0.3) +
+      geom_line(color = "white", size = 0.8) +
+      labs(title = "Coal Production", x = "Time", y = "Production") +
+      theme(
+        panel.background = element_rect(fill = "#202020"),
+        panel.border = element_blank(),
+
+        plot.background = element_rect(fill = "#202020"),
+        plot.title = element_text(size = 14, color = "white", face = "bold"),
+
+        panel.grid.major = element_line(color = "lightgrey", linetype = "dotted"),
+        panel.grid.minor = element_line(color = "lightgrey", linetype = "dotted"),
+
+        axis.line = element_line(color = "white"),
+        axis.title.x = element_text(size = 12, color = "white"),
+        axis.title.y = element_text(size = 12, color = "white"),
+        axis.text = element_text(color = "white"),
+
+        legend.title = element_text(size = 12, color = "white"),
+        legend.text = element_text(size = 10, color = "white"),
+        legend.position = "none"
+      )
   })
 
   output$html <- renderUI({
@@ -49,9 +103,28 @@ server <- function(input, output) {
     data <- data.frame(x, y)
 
     ggplot(data, aes(x = x, y = y)) +
-      geom_line(color = "blue", size = 1.5) +
-      labs(title = "Petroleum Prices", x = "X-Axis", y = "Y-Axis") +
-      theme_minimal()
+      geom_area(fill = "lightblue", alpha = 0.3) +
+      geom_line(color = "white", size = 0.8) +
+      labs(title = "Coal Production", x = "Time", y = "Production") +
+      theme(
+        panel.background = element_rect(fill = "#202020"),
+        panel.border = element_blank(),
+
+        plot.background = element_rect(fill = "#202020"),
+        plot.title = element_text(size = 14, color = "white", face = "bold"),
+
+        panel.grid.major = element_line(color = "lightgrey", linetype = "dotted"),
+        panel.grid.minor = element_line(color = "lightgrey", linetype = "dotted"),
+
+        axis.line = element_line(color = "white"),
+        axis.title.x = element_text(size = 12, color = "white"),
+        axis.title.y = element_text(size = 12, color = "white"),
+        axis.text = element_text(color = "white"),
+
+        legend.title = element_text(size = 12, color = "white"),
+        legend.text = element_text(size = 10, color = "white"),
+        legend.position = "none"
+      )
   })
 
   output$market2 <- renderPlot({
@@ -60,9 +133,28 @@ server <- function(input, output) {
     data <- data.frame(x, y)
 
     ggplot(data, aes(x = x, y = y)) +
-      geom_line(color = "blue", size = 1.5) +
-      labs(title = "Petroleum Production", x = "X-Axis", y = "Y-Axis") +
-      theme_minimal()
+      geom_area(fill = "lightblue", alpha = 0.3) +
+      geom_line(color = "white", size = 0.8) +
+      labs(title = "Coal Production", x = "Time", y = "Production") +
+      theme(
+        panel.background = element_rect(fill = "#202020"),
+        panel.border = element_blank(),
+
+        plot.background = element_rect(fill = "#202020"),
+        plot.title = element_text(size = 14, color = "white", face = "bold"),
+
+        panel.grid.major = element_line(color = "lightgrey", linetype = "dotted"),
+        panel.grid.minor = element_line(color = "lightgrey", linetype = "dotted"),
+
+        axis.line = element_line(color = "white"),
+        axis.title.x = element_text(size = 12, color = "white"),
+        axis.title.y = element_text(size = 12, color = "white"),
+        axis.text = element_text(color = "white"),
+
+        legend.title = element_text(size = 12, color = "white"),
+        legend.text = element_text(size = 10, color = "white"),
+        legend.position = "none"
+      )
   })
 
   output$market3 <- renderPlot({
@@ -71,9 +163,28 @@ server <- function(input, output) {
     data <- data.frame(x, y)
 
     ggplot(data, aes(x = x, y = y)) +
-      geom_line(color = "blue", size = 1.5) +
-      labs(title = "Coal Prices", x = "X-Axis", y = "Y-Axis") +
-      theme_minimal()
+      geom_area(fill = "lightblue", alpha = 0.3) +
+      geom_line(color = "white", size = 0.8) +
+      labs(title = "Coal Production", x = "Time", y = "Production") +
+      theme(
+        panel.background = element_rect(fill = "#202020"),
+        panel.border = element_blank(),
+
+        plot.background = element_rect(fill = "#202020"),
+        plot.title = element_text(size = 14, color = "white", face = "bold"),
+
+        panel.grid.major = element_line(color = "lightgrey", linetype = "dotted"),
+        panel.grid.minor = element_line(color = "lightgrey", linetype = "dotted"),
+
+        axis.line = element_line(color = "white"),
+        axis.title.x = element_text(size = 12, color = "white"),
+        axis.title.y = element_text(size = 12, color = "white"),
+        axis.text = element_text(color = "white"),
+
+        legend.title = element_text(size = 12, color = "white"),
+        legend.text = element_text(size = 10, color = "white"),
+        legend.position = "none"
+      )
   })
 
   output$market4 <- renderPlot({
@@ -82,8 +193,27 @@ server <- function(input, output) {
     data <- data.frame(x, y)
 
     ggplot(data, aes(x = x, y = y)) +
-      geom_line(color = "blue", size = 1.5) +
-      labs(title = "Coal Production", x = "X-Axis", y = "Y-Axis") +
-      theme_minimal()
+      geom_area(fill = "lightblue", alpha = 0.3) +
+      geom_line(color = "white", size = 0.8) +
+      labs(title = "Coal Production", x = "Time", y = "Production") +
+      theme(
+        panel.background = element_rect(fill = "#202020"),
+        panel.border = element_blank(),
+
+        plot.background = element_rect(fill = "#202020"),
+        plot.title = element_text(size = 14, color = "white", face = "bold"),
+
+        panel.grid.major = element_line(color = "lightgrey", linetype = "dotted"),
+        panel.grid.minor = element_line(color = "lightgrey", linetype = "dotted"),
+
+        axis.line = element_line(color = "white"),
+        axis.title.x = element_text(size = 12, color = "white"),
+        axis.title.y = element_text(size = 12, color = "white"),
+        axis.text = element_text(color = "white"),
+
+        legend.title = element_text(size = 12, color = "white"),
+        legend.text = element_text(size = 10, color = "white"),
+        legend.position = "none"
+      )
   })
 }
