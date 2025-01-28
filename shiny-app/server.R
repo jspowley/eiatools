@@ -1,9 +1,10 @@
 server <- function(input, output) {
 
-  observeEvent(input$submit_button, {
+  #------------------------------------Buttons-------------------------------#
+  observeEvent(input$api_button, {
     api_key <- input$text_input
     print(api_key) ## TO BE REMOVED
-  })
+  }) ## API Submission Button
 
   observeEvent(input$report_button, {
     req(input$select_input)
@@ -16,8 +17,9 @@ server <- function(input, output) {
     output$report_content <- renderUI({
       tags$div(HTML(report_content))
     })
-  })
+  }) ## HTML Reports Submission Button
 
+  #------------------------------------Forms-------------------------------#
   observeEvent(input$send, {
     req(input$name, input$email, input$message)
 
@@ -38,8 +40,9 @@ server <- function(input, output) {
     )
 
     output$status <- renderText("Message sent successfully!")
-  })
+  }) ## Contact Form
 
+  #------------------------------------Charts-------------------------------#
 
   output$plot <- renderPlot({
     x <- rnorm(input$num_points)
@@ -68,7 +71,7 @@ server <- function(input, output) {
         legend.text = element_text(size = 10, color = "white"),
         legend.position = "none"
       )
-  })
+  }) ## Data Visualization - Scatterplot
 
   output$lineChart <- renderPlot({
     x <- seq_len(input$num_points)
@@ -97,7 +100,7 @@ server <- function(input, output) {
         legend.text = element_text(size = 10, color = "white"),
         legend.position = "none"
       )
-  })
+  }) ## Data Visualization - Line Chart
 
   output$AreaChart <- renderPlot({
     x <- seq_len(input$num_points)
@@ -127,11 +130,7 @@ server <- function(input, output) {
         legend.text = element_text(size = 10, color = "white"),
         legend.position = "none"
       )
-  })
-
-  output$html <- renderUI({
-    HTML("<h3>Reports Content Goes Here</h3>")
-  })
+  }) ## Data Visualization - Area Chart
 
   output$market1 <- renderPlot({
     x <- seq_len(input$num_points)
@@ -161,7 +160,7 @@ server <- function(input, output) {
         legend.text = element_text(size = 10, color = "white"),
         legend.position = "none"
       )
-  })
+  }) ## Key Markets Graph 1 (Left to Right) - Area Chart
 
   output$market2 <- renderPlot({
     x <- seq_len(input$num_points)
@@ -191,7 +190,7 @@ server <- function(input, output) {
         legend.text = element_text(size = 10, color = "white"),
         legend.position = "none"
       )
-  })
+  }) ## Key Markets Graph 2 (Left to Right) - Area Chart
 
   output$market3 <- renderPlot({
     x <- seq_len(input$num_points)
@@ -221,7 +220,7 @@ server <- function(input, output) {
         legend.text = element_text(size = 10, color = "white"),
         legend.position = "none"
       )
-  })
+  }) ## Key Markets Graph 3 (Left to Right) - Area Chart
 
   output$market4 <- renderPlot({
     x <- seq_len(input$num_points)
@@ -251,5 +250,5 @@ server <- function(input, output) {
         legend.text = element_text(size = 10, color = "white"),
         legend.position = "none"
       )
-  })
+  }) ## Key Markets Graph 4 (Left to Right) - Area Chart
 }

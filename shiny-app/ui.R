@@ -1,4 +1,6 @@
 ui <- navbarPage(
+
+  #------------------------------------General UI-------------------------------#
   title = tags$div(
     tags$img(src = "https://github.com/jspowley/eiatools/raw/refs/heads/main1/design/DarkMode%20Logo.png", height = "40px", style = "margin-right: 10px;"),
     "",
@@ -49,11 +51,12 @@ ui <- navbarPage(
     "))
   ),
 
+  #------------------------------------Selected Pages-------------------------------#
   tabPanel("Settings",
            fluidPage(
              h2("User Settings"),
              textInput("text_input", "ENTER API KEY:"),
-             actionButton("submit_button", "Submit")
+             actionButton("api_button", "Submit")
            )
   ),
 
