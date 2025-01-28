@@ -29,9 +29,10 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA){
       end = end,
       sort_df = data.frame(sortby = c("period"), direction = c("desc")),
       data_types = d_row$data,
-      offset = NA,
+      offset = offset,
       api_key = api_key
-    )
+    ) %>%
+      dplyr::mutate(nickname = d_row$nickname)
 
     if(!nrow(d_out) == 5000){
       loop <- FALSE
