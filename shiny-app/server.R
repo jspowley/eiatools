@@ -5,6 +5,29 @@ server <- function(input, output) {
     print(api_key)
   })
 
+  observeEvent(input$send, {
+    req(input$name, input$email, input$message)
+
+    send.mail(
+      from = input$email,
+      to = c("bnboyko@ualberta.ca", "jpowley@ualberta.ca"),
+      subject = paste("eia Contact Form Message from", input$name),
+      body = input$message,
+      smtp = list(
+        host.name = "smtp.example.com",  # Replace with your SMTP server in future (hide credentials)
+        port = 465,
+        user.name = "your_username",
+        passwd = "your_password",
+        ssl = TRUE
+      ),
+      authenticate = TRUE,
+      send = TRUE
+    )
+
+    output$status <- renderText("Message sent successfully!")
+  })
+
+
   output$plot <- renderPlot({
     x <- rnorm(input$num_points)
     y <- rnorm(input$num_points)

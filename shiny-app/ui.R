@@ -108,8 +108,31 @@ ui <- navbarPage(
 
   tabPanel("Contact",
            fluidPage(
-             h2("Contact Page"),
-             p("This is the contact page content.")
+             tags$style(HTML("
+              .form-control {
+                background-color: #202020;
+                color: white;
+              }
+              .well {
+                background-color: #202020;
+                border-color: #202020;
+              }
+           ")),  # Corrected placement of closing parenthesis and quote
+             h2("Contact Us"),
+             p("If you encounter any bugs, errors, or unexpected behavior while using our app, please let us know so we can address them as quickly as possible. We also welcome suggestions for improvements, new features, or any feedback that can help make your experience better. Whether it’s a minor inconvenience or a major idea you’d like to see implemented, we value your input. Feel free to reach out for any technical issues, general inquiries, or feedback—it’s your insights that drive our continued development!"),
+             sidebarLayout(
+               sidebarPanel(
+                 textInput("name", "Name:"),
+                 textInput("email", "Email:"),
+                 textAreaInput("message", "Message:", "", rows = 5),
+                 actionButton("send", "Send Message")
+               ),
+               mainPanel(
+                 textOutput("status")
+               )
+             )
            )
   )
+
+
 )
