@@ -48,4 +48,6 @@ Added Python integration using reticulate::py_to_r for .xls files from eia Weekl
 
 Added ShinyApp integration - Four File Deployment Working. (No Data Connected At This Time)
 
+ShinyApp - HTML Render Working - API KEY Working - Design Implemented - Contact Form Implemented - Data Visualization In Implemented (As of 2025-01-27)
+
 
