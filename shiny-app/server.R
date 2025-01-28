@@ -9,7 +9,8 @@ server <- function(input, output) {
     req(input$select_input)
 
     selected_link <- news_list$link[news_list$title == input$select_input]
-    report_content <<- html_reader(selected_link)
+    selected_link <- as.character(selected_link)
+    report_content <- html_reader(selected_link)
 
     output$report_content <- renderUI({
       tags$div(HTML(report_content))
