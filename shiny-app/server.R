@@ -11,6 +11,7 @@ server <- function(input, output) {
     selected_link <- news_list$link[news_list$title == input$select_input]
     selected_link <- as.character(selected_link)
     report_content <- html_reader(selected_link)
+    report_content <- as.character(report_content)
 
     output$report_content <- renderUI({
       tags$div(HTML(report_content))
