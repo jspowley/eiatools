@@ -104,10 +104,14 @@ ui <- navbarPage(
            sidebarLayout(
              sidebarPanel(
                sliderInput("num_points", "Number of points:", min = 10, max = 100, value = 50),
-               textInput("text_input", "Enter text:"),
-               numericInput("num_input", "Numeric input:", value = 10),
-               dateInput("date_input", "Select date:"),
-               selectInput("select_input", "Choose option:", choices = c("Option 1", "Option 2", "Option 3"))
+               dateInput("date_input_start", "Select Start Date:"),
+               dateInput("date_input_end", "Select End Date:"),
+               selectizeInput(inputId = "dropdown_source",label = "Select a Source", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+               selectizeInput(inputId = "dropdown_category",label = "Select a Category", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+               selectizeInput(inputId = "dropdown_series",label = "Select a Series", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+               actionButton("csv_button", "Download CSV"),
+               actionButton("r_button", "Download API"),
+               actionButton("image_button", "Download PNG")
              ),
              mainPanel(
                tabsetPanel(

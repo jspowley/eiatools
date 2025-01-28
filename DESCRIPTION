@@ -20,7 +20,9 @@ Imports:
     reticulate,
     rlang,
     tibble,
-    tidyr
+    tidyr,
+    rvest,
+    ggplot2
 Depends: 
     R (>= 3.5)
 LazyData: true
