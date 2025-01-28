@@ -144,6 +144,25 @@ ui <- navbarPage(
              )
            )
   ),
+  tabPanel("Developer",
+           sidebarLayout(
+             sidebarPanel(
+               selectizeInput(inputId = "dropdown_source",label = "Select a Source", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+               selectizeInput(inputId = "dropdown_category",label = "Select a Category", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+               selectizeInput(inputId = "dropdown_series",label = "Select a Series", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+               actionButton("dev_button", "Generate")
+             ),
+             mainPanel(
+               tabsetPanel(
+                 tabPanel("JSON", verbatimTextOutput("json_text")),
+                 tabPanel("Options", tableOutput("table")),
+                 tabPanel("R", plotOutput("AreaChart")),
+                 tabPanel("Python", tableOutput("table"))
+               ),
+               tags$div(class = "custom-class", "Source: eia.gov")
+             )
+           )
+  ),
 
   tabPanel("Contact",
            fluidPage(
@@ -173,5 +192,6 @@ ui <- navbarPage(
            )
   )
 
-
 )
+
+
