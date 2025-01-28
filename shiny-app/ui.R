@@ -61,12 +61,28 @@ ui <- navbarPage(
            fluidPage(
              h2("Key Markets"),
              fluidRow(
-               column(6, plotOutput("market1")),
-               column(6, plotOutput("market2"))
-             ),
-             fluidRow(
-               column(6, plotOutput("market3")),
-               column(6, plotOutput("market4"))
+               column(3,
+                      selectizeInput(inputId = "dropdown",label = "Select a series", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+                      plotOutput("market1"),
+                      tags$div(class = "custom-class", "Source: eia.gov")
+                      ),
+
+               column(3,
+                      selectizeInput(inputId = "dropdown",label = "Select a series", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+                      plotOutput("market2"),
+                      tags$div(class = "custom-class", "Source: eia.gov")
+               ),
+
+               column(3,
+                      selectizeInput(inputId = "dropdown",label = "Select a series", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+                      plotOutput("market3"),
+                      tags$div(class = "custom-class", "Source: eia.gov")
+               ),
+               column(3,
+                      selectizeInput(inputId = "dropdown",label = "Select a series", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+                      plotOutput("market4"),
+                      tags$div(class = "custom-class", "Source: eia.gov")
+               ) ## The Idea Is To Store These Selections In a .txt file, which allows users to save their default series ids
              )
            )
   ),
