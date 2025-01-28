@@ -2,7 +2,18 @@ server <- function(input, output) {
 
   observeEvent(input$submit_button, {
     api_key <- input$text_input
-    print(api_key)
+    print(api_key) ## TO BE REMOVED
+  })
+
+  observeEvent(input$report_button, {
+    req(input$select_input)
+
+    selected_link <- news_list$link[news_list$title == input$select_input]
+    report_content <<- html_reader(selected_link)
+
+    output$report_content <- renderUI({
+      tags$div(HTML(report_content))
+    })
   })
 
   observeEvent(input$send, {

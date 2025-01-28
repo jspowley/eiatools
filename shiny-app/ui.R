@@ -126,9 +126,15 @@ ui <- navbarPage(
   ),
 
   tabPanel("Reports",
-           fluidPage(
-             h2("Reports Page"),
-             p("This is the reports page content.")
+           sidebarLayout(
+             sidebarPanel(
+               selectInput("select_input", "Choose Report", choices = news_list$title),
+               actionButton("report_button", "Submit")
+             ),
+             mainPanel(
+               uiOutput("report_content"),
+               tags$div(class = "custom-class", "Source: eia.gov/todayinenergy")
+             )
            )
   ),
 
