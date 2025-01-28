@@ -59,6 +59,16 @@ ui <- navbarPage(
 
   tabPanel("Markets",
            fluidPage(
+             tags$style(HTML("
+                .selectize-input {
+                  background-color: #202020 !important;
+                  color: white !important;
+              }
+              .selectize-dropdown {
+                background-color: #202020 !important;
+                color: white !important;
+              }
+  ")),
              h2("Key Markets"),
              fluidRow(
                column(3,
