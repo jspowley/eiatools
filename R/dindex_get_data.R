@@ -7,7 +7,7 @@
 #' @param start "YYYY-MM-DD"
 #' @param end "YYYY-MM-DD"
 #'
-#' @return
+#' @return A dataframe
 #' @export
 dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA){
 

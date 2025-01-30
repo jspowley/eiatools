@@ -2,10 +2,8 @@
 #' A function for converting lists of dataframe to a row stacked dataframe
 #' @param list_in A list of dataframes.
 #'
-#' @return
+#' @return A dataframe
 #' @export
-#'
-#' @examples
 collapse_index <- function(list_in){
   output <- NULL
   for(i in 1:length(list_in)){

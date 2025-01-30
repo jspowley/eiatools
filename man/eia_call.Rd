@@ -4,7 +4,7 @@
 \alias{eia_call}
 \title{eia_call}
 \usage{
-eia_call(endpoint, sleep = 2)
+eia_call(endpoint, sleep = 5)
 }
 \arguments{
 \item{endpoint}{a url endpoint, with headers attached}
