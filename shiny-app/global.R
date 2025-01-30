@@ -1,18 +1,24 @@
-<<<<<<< Updated upstream
+#<<<<<<< Updated upstream
 
-=======
-library(ggplot2)
-library(eiatools)
->>>>>>> Stashed changes
+#=======
+#library(ggplot2)
+#library(eiatools)
+#>>>>>>> Stashed changes
+
+
 ## TESTS
 my_global_var_test <- "Data Connection To eia Will Be Done On This Page"
-data_index_test <- dindex_get_data(data_index[["steo"]][["seriesDescription"]], api_key, "2024-01-01",  "2025-01-01") ## Error Message
+#data_index_test <- dindex_get_data(data_index[["steo"]][["seriesDescription"]], api_key, "2024-01-01",  "2025-01-01") ## Error Message
 
+data_list <- data_index
 
 
 ## LISTS
 news_list <- eia_today_in_energy()
 tools_list <- c("Regression", "Correlation", "Covariance", "Moving Window", "GARCH")
 
+source_list <- names(data_list)
+
+
 ## VISUALIZATION
-report_content <- "NONE"
+report_content <- "NONE" ## Need A Place-Holder Before Report Is Selected

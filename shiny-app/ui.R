@@ -104,7 +104,7 @@ ui <- navbarPage(
                sliderInput("num_points", "Number of points:", min = 10, max = 100, value = 50),
                dateInput("date_input_start", "Select Start Date:"),
                dateInput("date_input_end", "Select End Date:"),
-               selectizeInput(inputId = "dropdown_source",label = "Select a Source", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+               selectizeInput(inputId = "dropdown_source",label = "Select a Source", choices = source_list, selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
                selectizeInput(inputId = "dropdown_category",label = "Select a Category", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
                selectizeInput(inputId = "dropdown_series",label = "Select a Series", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
                selectizeInput(inputId = "dropdown_tool",label = "Select a Tool", choices = tools_list, selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
