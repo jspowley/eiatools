@@ -6,6 +6,12 @@ server <- function(input, output) {
     print(api_key) ## TO BE REMOVED
   }) ## API Submission Button
 
+  observeEvent(input$dropdown_source, {
+    source_list_select <- input$dropdown_source
+    print(source_list_select) ## TO BE REMOVED
+  }) ## API Submission Button
+
+
   observeEvent(input$report_button, {
     req(input$select_input)
 
