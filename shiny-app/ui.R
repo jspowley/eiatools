@@ -43,7 +43,6 @@ ui <- navbarPage(
         background-color: #000000 !important;
         color: #ffffff !important;
       }
-      /* Change hover color for tabs */
       .navbar-nav > li > a:hover {
         background-color: #000000 !important;
         color: #ffffff !important;
@@ -72,7 +71,6 @@ ui <- navbarPage(
                 color: white !important;
               }
   ")),
-             h2("Key Markets"),
              fluidRow(
                column(3,
                       selectizeInput(inputId = "dropdown",label = "Select a series", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
@@ -158,7 +156,7 @@ ui <- navbarPage(
                tabsetPanel(
                  tabPanel("JSON", verbatimTextOutput("json_text")),
                  tabPanel("Options", tableOutput("table")),
-                 tabPanel("R", plotOutput("AreaChart")),
+                 tabPanel("R", plotOutput("table")),
                  tabPanel("Python", tableOutput("table"))
                ),
                tags$div(class = "custom-class", "Source: eia.gov")
