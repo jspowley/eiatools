@@ -106,7 +106,7 @@ ui <- navbarPage(
                dateInput("date_input_end", "Select End Date:"),
                selectizeInput(inputId = "dropdown_source",label = "Select a Source", choices = source_list, selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
                selectizeInput(inputId = "dropdown_category",label = "Select a Category", choices = category_list, selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
-               selectizeInput(inputId = "dropdown_series",label = "Select Data", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
+               selectizeInput(inputId = "dropdown_data",label = "Select Data", choices = c("Option 1", "Option 2", "Option 3", "Option 4"), selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
                selectizeInput(inputId = "dropdown_tool",label = "Select a Tool", choices = tools_list, selected = NULL, multiple = FALSE, options = list(placeholder = "Type to search...", maxItems = 1)),
                actionButton("data_vis_submit", "Generate Visualization")
              ),

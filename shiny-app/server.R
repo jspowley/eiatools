@@ -11,6 +11,11 @@ server <- function(input, output) {
     category_list <- names(data_list[[source_list_select]])
   }) ## Source Selection Submission Dropdown
 
+  observeEvent(input$dropdown_category, {
+    category_list_select <- input$dropdown_category
+    print(category_list_select)
+  }) ## Category Selection Submission Dropdown
+
 
   observeEvent(input$report_button, {
     req(input$select_input)
