@@ -1,3 +1,14 @@
+#' d(ata)index_get_data
+#'
+#' A function accepting rows from the data_index object and then fetches from EIA
+#'
+#' @param dindex_table a subset of the data_index table
+#' @param api_key your eia api key
+#' @param start "YYYY-MM-DD"
+#' @param end "YYYY-MM-DD"
+#'
+#' @return
+#' @export
 dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA){
 
   data_out <- NULL
