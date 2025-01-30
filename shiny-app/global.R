@@ -15,7 +15,9 @@ data_list <- data_index
 
 
 ## SELECTION
-source_list_select <- "NONE"
+source_list_select <- "steo" ## Need A Place-Holder Before Selection
+category_list_select <- "NONE" ## Need A Place-Holder Before Selection
+
 report_content <- "NONE" ## Need A Place-Holder Before Report Is Selected
 
 ## LISTS
@@ -23,5 +25,6 @@ news_list <- eia_today_in_energy()
 tools_list <- c("Regression", "Correlation", "Covariance", "Moving Window", "GARCH")
 
 source_list <- names(data_list)
+category_list <- names(data_list$steo)
 
 

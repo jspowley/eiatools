@@ -8,8 +8,8 @@ server <- function(input, output) {
 
   observeEvent(input$dropdown_source, {
     source_list_select <- input$dropdown_source
-    print(source_list_select) ## TO BE REMOVED
-  }) ## API Submission Button
+    category_list <- names(data_list[[source_list_select]])
+  }) ## Source Selection Submission Dropdown
 
 
   observeEvent(input$report_button, {
