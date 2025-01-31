@@ -61,9 +61,7 @@ ui <- navbarPage(
 
   tabPanel("DataTable",
            fluidPage(
-             h2("User Settings"),
-             textInput("text_input", "ENTER API KEY:"),
-             actionButton("api_button", "Submit")
+             h2("User Settings")
            )
   )
 
