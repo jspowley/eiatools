@@ -54,17 +54,29 @@ ui <- navbarPage(
   tabPanel("Settings",
            fluidPage(
              h2("User Settings"),
-             textInput("text_input", "ENTER API KEY:"),
+             textInput("api_input", "ENTER API KEY:"),
              actionButton("api_button", "Submit")
            )
   ),
 
   tabPanel("DataTable",
            fluidPage(
-             h2("User Settings")
+            actionButton("transfer_rows", "Transfer Selected Rows"),
+               mainPanel(
+                 fluidRow(
+                   column(6,
+                          h3("Source Table"),
+                          DTOutput("source_table", width = "100%")
+                   ),
+
+                   column(6,
+                          h3("Target Table"),
+                          DTOutput("target_table", width = "100%")
+                   )
+               )
+             )
            )
-  )
 
+
+    )
 )
-
-

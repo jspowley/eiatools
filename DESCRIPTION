@@ -22,7 +22,8 @@ Imports:
     tibble,
     tidyr,
     rvest,
-    ggplot2
+    ggplot2,
+    DT
 Depends: 
     R (>= 3.5)
 LazyData: true
