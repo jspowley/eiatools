@@ -60,23 +60,18 @@ ui <- navbarPage(
   ),
 
   tabPanel("DataTable",
-           fluidPage(
-            actionButton("transfer_rows", "Transfer Selected Rows"),
-               mainPanel(
-                 fluidRow(
-                   column(6,
-                          h3("Source Table"),
-                          DTOutput("source_table", width = "100%")
-                   ),
-
-                   column(6,
-                          h3("Target Table"),
-                          DTOutput("target_table", width = "100%")
-                   )
+           fillPage(
+             actionButton("transfer_rows", "Transfer Selected Rows"),
+             fillRow(
+               fillCol(
+                 h3("Source Table"),
+                 DTOutput("source_table", width = "98%")
+               ),
+               fillCol(
+                 h3("Target Table"),
+                 DTOutput("target_table", width = "98%")
                )
              )
            )
-
-
-    )
+  )
 )
