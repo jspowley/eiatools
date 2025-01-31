@@ -31,8 +31,6 @@ server <- function(input, output) {
     if (!is.null(selected_rows) && length(selected_rows) > 0) {
       rows_to_add <- rv$source_data[selected_rows, ]
       rv$target_data <- rbind(rv$target_data, rows_to_add)
-
-      rv$source_data <- rv$source_data[-selected_rows, ]
     }
   })
 }
