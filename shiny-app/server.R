@@ -13,7 +13,7 @@ server <- function(input, output) {
 
   observeEvent(input$dropdown_category, {
     category_list_select <- input$dropdown_category
-    print(category_list_select)
+
   }) ## Category Selection Submission Dropdown
 
 
