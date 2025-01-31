@@ -3,13 +3,14 @@ server <- function(input, output) {
   #------------------------------------Buttons-------------------------------#
   observeEvent(input$api_button, {
     api_key <- input$text_input
-    print(api_key) ## TO BE REMOVED
   }) ## API Submission Button
 
   observeEvent(input$dropdown_source, {
     source_list_select <- input$dropdown_source
     category_list <- names(data_list[[source_list_select]])
   }) ## Source Selection Submission Dropdown
+
+  ## c(input$dropdown_source, )
 
   observeEvent(input$dropdown_category, {
     category_list_select <- input$dropdown_category

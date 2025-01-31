@@ -1,10 +1,3 @@
-#<<<<<<< Updated upstream
-
-#=======
-#library(ggplot2)
-#library(eiatools)
-#>>>>>>> Stashed changes
-
 
 ## TESTS
 my_global_var_test <- "Data Connection To eia Will Be Done On This Page"
