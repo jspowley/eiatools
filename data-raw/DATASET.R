@@ -99,6 +99,10 @@ tryCatch({
 load_all()
 eiatools::data_index
 
+app_dictionary <- list()
+app_dictionary$tables <- eiatools::data_index %>% eiatools::collapse_index() %>% dplyr::select(route_1_id, route_1_name) %>% dplyr::distinct()
+usethis::use_data(app_dictionary, overwrite = T)
+
 # Ensuring placeholder cols exist
 # data_index_old <- eiatools::data_index
 # for(p in 1:length(data_index_old)){
