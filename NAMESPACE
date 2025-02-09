@@ -3,6 +3,7 @@
 export("%>%")
 export(build_index)
 export(collapse_index)
+export(data_tree)
 export(dindex_get_data)
 export(eia_data)
 export(eia_map)

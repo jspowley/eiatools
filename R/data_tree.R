@@ -1,3 +1,12 @@
+#' Data Tree
+#'
+#' Using a route tree dataframe, returns a data level heirarchy on recently updated eia data series
+#'
+#' @param r_tree A dataframe with routing paramters. Use route_tree or route_index.
+#' @param api_key Your eia API key, as a string
+#'
+#' @return A dataframe of EIA's data heirarchy
+#' @export
 data_tree <- function(r_tree, api_key){
 
   output <- NULL
