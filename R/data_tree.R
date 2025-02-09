@@ -31,7 +31,7 @@ data_tree <- function(r_tree, api_key){
           api_key = api_key)
 
         print("Data fetched")
-        print(str(d))
+        print(utils::str(d))
 
         if(length(d)>0){
 
@@ -44,7 +44,7 @@ data_tree <- function(r_tree, api_key){
         }
 
         r_count <- nrow(d_out)
-        dist_count <- nrow(d_out %>% dplyr::select(-period) %>% dplyr::distinct())
+        dist_count <- nrow(d_out %>% dplyr::select(-dplyr::any_of("period")) %>% dplyr::distinct())
 
         if(dist_count < r_count){
           print("Range narrowed, exiting")
@@ -63,7 +63,7 @@ data_tree <- function(r_tree, api_key){
 
       if(!is.null(d_out)){
       d_out <- d_out %>%
-        dplyr::select(-period) %>%
+        dplyr::select(-dplyr::any_of("period")) %>%
         dplyr::distinct() %>%
         dplyr::mutate(freq = f)
 

@@ -6,7 +6,7 @@
 \alias{eiatools-package}
 \title{eiatools: What the Package Does (One Line, Title Case)}
 \description{
-What the package does (one paragraph).
+EIATools is an endpoint archival tool, and api wrapper for the US Energy Information Administration. It's function is to provide a development toolkit for integrating both tools drawing directly from EIA data, and tools responsible for archiving and updating EIA's available datasets as they become available.
 }
 \author{
 \strong{Maintainer}: Justin Powley \email{jpowley@ualberta.ca}

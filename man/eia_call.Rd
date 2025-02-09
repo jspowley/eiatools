@@ -15,5 +15,6 @@ eia_call(endpoint, sleep = 5)
 A response in json list format
 }
 \description{
-eia_call
+Function for handling api requests at an atomic level.
+Also includes url cleaning components autaomatically applied by most web broswers
 }

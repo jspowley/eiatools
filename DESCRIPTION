@@ -1,12 +1,12 @@
 Package: eiatools
 Title: What the Package Does (One Line, Title Case)
-Date: 2025-01-24
-Version: 0.0.0.0002
+Date: 2025-02-09
+Version: 0.0.1.0000
 Authors@R: c(
     person("Justin", "Powley", ,"jpowley@ualberta.ca", role = c("cre","aut")),
     person("Brayden", "Boyko", ,"braydenboyko@boykowealth.com", role = "aut")
     )
-Description: What the package does (one paragraph).
+Description: EIATools is an endpoint archival tool, and api wrapper for the US Energy Information Administration. It's function is to provide a development toolkit for integrating both tools drawing directly from EIA data, and tools responsible for archiving and updating EIA's available datasets as they become available.
 License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -22,13 +22,13 @@ Imports:
     tibble,
     tidyr,
     rvest,
-    ggplot2,
-    DT,
-    stringr
+    stringr,
+    utils,
+    xml2
 Depends: 
     R (>= 3.5)
 LazyData: true
 Suggests: 
     testthat (>= 3.0.0),
-    creds
 Config/testthat/edition: 3
+LazyDataCompression: xz

@@ -1,13 +1,9 @@
-#------------------------------------Config------------------------------------#
-
 default_headers <- list(
   sort = 'period',
   direction = 'desc',
   data = 'value',
   length = '5000'
 )
-
-#------------------------------------Distinct Mapping Function Per Product------------------------------------#
 
 #' EIA Mapping Request
 #'
