@@ -85,6 +85,7 @@ data_tree <- function(r_tree, api_key){
             "api_endpoint",
             "facets",
             "data",
+            "units",
             "route_1_id",
             "route_1_name",
             "route_1_description",

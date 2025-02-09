@@ -23,7 +23,8 @@ Imports:
     tidyr,
     rvest,
     ggplot2,
-    DT
+    DT,
+    stringr
 Depends: 
     R (>= 3.5)
 LazyData: true

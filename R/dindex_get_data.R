@@ -32,6 +32,9 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA){
       }
     }
 
+    # Data cleaning for non-identified facets, displayed in a non_conventional way
+    facet_df <- facet_df %>% dplyr::filter(!facet_id == "#N/A")
+
     d_out <- eia_data(
       api_endpoint = d_row$api_endpoint,
       freq = d_row$freq,
