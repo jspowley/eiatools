@@ -1,4 +1,6 @@
-#' d(ata)index_get_data
+
+
+#' dataindex_get_data
 #'
 #' A function accepting rows from the data_index object and then fetches from EIA
 #'
@@ -9,7 +11,7 @@
 #'
 #' @return A dataframe
 #' @export
-dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA){
+dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA, clean_names = FALSE){
 
   data_out <- NULL
 
@@ -47,8 +49,19 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA){
       data_types = d_row$data,
       offset = offset,
       api_key = api_key
-    ) %>%
-      dplyr::mutate(nickname = d_row$nickname)
+    )
+
+    if(!is.null(d_out)){
+      # Auto cleanup
+      d_out <- d_out %>% dplyr::mutate(nickname = d_row$nickname)
+
+      for(d_type in (d_row$data %>% unlist())){
+        print(str(d_type))
+        try({
+          d_out <- d_out %>% dplyr::mutate(!!rlang::sym(d_type) := !!rlang::sym(d_type) %>% as.numeric())
+        })
+      }
+    }
 
     if(!nrow(d_out) == 5000){
       loop <- FALSE
@@ -69,5 +82,12 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA){
       data_out <- dplyr::bind_rows(data_out, dat_out)
     }
   }
+
+  if(clean_names){
+    data_out <- janitor::clean_names(data_out)
+  }
+
   return(data_out)
 }
+
+#' @importFrom rlang :=

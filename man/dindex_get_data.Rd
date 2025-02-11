@@ -2,9 +2,15 @@
 % Please edit documentation in R/dindex_get_data.R
 \name{dindex_get_data}
 \alias{dindex_get_data}
-\title{d(ata)index_get_data}
+\title{dataindex_get_data}
 \usage{
-dindex_get_data(dindex_table, api_key, start = NA, end = NA)
+dindex_get_data(
+  dindex_table,
+  api_key,
+  start = NA,
+  end = NA,
+  clean_names = FALSE
+)
 }
 \arguments{
 \item{dindex_table}{a subset of the data_index table}
