@@ -11,7 +11,7 @@ eia_call <- function(endpoint, sleep = 5){
 
   endpoint <- stringr::str_replace_all(endpoint, pattern = " ", replacement = "%20")
 
-  print(endpoint)
+  # print(endpoint)
   response <- httr::GET(endpoint) %>%
     httr::content(as = "text", encoding = 'UTF-8') %>%
     jsonlite::fromJSON()
