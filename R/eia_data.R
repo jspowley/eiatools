@@ -13,6 +13,7 @@
 #' @return A dataframe
 #' @export
 eia_data <- function(
+
   api_endpoint, #
   freq, #
   facets = NULL,
@@ -24,6 +25,8 @@ eia_data <- function(
   api_key){ #
 
   api_req <- paste0(root, api_endpoint, "/data", "?api_key=", api_key, "&length=5000")
+
+  api_req <- paste0(api_req, "&frequency=", freq)
 
   # Adding start header
   if(!is.na(start)){
@@ -56,6 +59,7 @@ eia_data <- function(
       api_req <- paste0(api_req, "&facets[", facets$facet_name[i],"][]=", facets$facet_id[i])
     }
   }
+
   # Adding sort params
   for(i in 1:nrow(sort_df)){
     api_req <- paste0(api_req, "&sort[", i-1, "][column]=", sort_df[i,]$sortby, "&sort[", i-1, "][direction]=", sort_df[i,]$direction)
