@@ -56,7 +56,7 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA, clean_n
       d_out <- d_out %>% dplyr::mutate(nickname = d_row$nickname)
 
       for(d_type in (d_row$data %>% unlist())){
-        print(str(d_type))
+        # print(str(d_type))
         try({
           d_out <- d_out %>% dplyr::mutate(!!rlang::sym(d_type) := !!rlang::sym(d_type) %>% as.numeric())
         })
