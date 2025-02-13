@@ -32,7 +32,3 @@ eia_call <- function(endpoint, sleep = 5, depth = 1){
   response$response %>%
     return()
 }
-
-y <- tryCatch({b}, error = function(e){
-  warning("Hello")
-  list(list())})
