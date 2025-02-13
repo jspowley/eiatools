@@ -16,6 +16,7 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA, clean_n
   data_out <- NULL
 
   for(i in 1:nrow(dindex_table)){
+
     loop <- TRUE
     dat_out <- NULL
     offset <- 0
@@ -51,7 +52,9 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA, clean_n
       api_key = api_key
     )
 
-    if(!is.null(d_out)){
+    # print(str(d_out))
+
+    if(!(is.list(d_out) & !is.data.frame(d_out))){
       # Auto cleanup
       d_out <- d_out %>% dplyr::mutate(nickname = d_row$nickname)
 
@@ -61,12 +64,16 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA, clean_n
           d_out <- d_out %>% dplyr::mutate(!!rlang::sym(d_type) := !!rlang::sym(d_type) %>% as.numeric())
         })
       }
-    }
 
     if(!nrow(d_out) == 5000){
       loop <- FALSE
     }else{
       offset <- offset + 5000
+    }
+
+    }else{
+      loop <- FALSE
+      warning(paste0("No data retrievable for row ",i, ". Consider narrowing data types or removing entirely (Data will only return if all data types are included at the specified endpoint)."))
     }
 
     if(is.null(dat_out)){
@@ -81,6 +88,7 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA, clean_n
     }else{
       data_out <- dplyr::bind_rows(data_out, dat_out)
     }
+    # print(nrow(data_out))
   }
 
   if(clean_names){

@@ -25,7 +25,6 @@ eia_data <- function(
   api_key){ #
 
   api_req <- paste0(root, api_endpoint, "/data", "?api_key=", api_key, "&length=5000")
-
   api_req <- paste0(api_req, "&frequency=", freq)
 
   # Adding start header
