@@ -72,8 +72,11 @@ dindex_get_data <- function(dindex_table, api_key, start = NA, end = NA, clean_n
     }
 
     }else{
-      loop <- FALSE
-      warning(paste0("No data retrievable for row ",i, ". Consider narrowing data types or removing entirely (Data will only return if all data types are included at the specified endpoint)."))
+
+      if(i == nrow(dindex_table)) loop <- FALSE
+
+      warning(paste0("No data retrievable for row ",i, ". Consider narrowing data types or removing entirely."))
+
     }
 
     if(is.null(dat_out)){
